@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开发中</title>
+</head>
+<body>
+    <h1 id="item"></h1>
+    <script>
+        let dom = document.querySelector("#item");
+        let dotCount = 0;
+        let preText = "developing"
+        setInterval(() => {
+            let text = preText;
+            for(let i = 0; i < dotCount; i++) {
+                text = text + ".";
+            }
+            dom.innerHTML = text;
+            dotCount = (dotCount + 1) % 5;
+        }, 300);
+    </script>
+</body>
+</html>
