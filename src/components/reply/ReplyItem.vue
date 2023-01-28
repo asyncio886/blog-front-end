@@ -6,7 +6,7 @@
             <Row :justify="`end`" v-if="baseUserInfo.uid == ownUid">
                 <DeleteOutlined class="cursor-pointer" @click="removeReply"/>
             </Row>
-            <p style="text-indent: 2em;" @click="reply">
+            <p style="text-indent: 2em; word-wrap: break-word;" @click="reply">
                 {{ data.reply.content }}
             </p>
         </div>

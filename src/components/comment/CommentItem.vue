@@ -10,7 +10,7 @@
             </Popover>
         </Row>
         <div style="text-indent: 2rem" @click="tryReply">
-            <p>{{ commentInfo.content }}</p>
+            <p style="word-wrap: break-word;">{{ commentInfo.content }}</p>
         </div>
         <ReplyList ref="replyListVue" :cid="commentInfo.cid" :replies-sum="props.data.replySum" />
         <hr style="width: 90%;margin: 0px auto;opacity: 0.4;">

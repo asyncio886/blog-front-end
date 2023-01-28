@@ -3,15 +3,15 @@
         <h1><b>{{ data.title }}</b></h1>
     </Row>
     <div>
-        <p style="font-size: 0.8rem; opacity: 0.6; text-indent: 2em">
+        <p style="font-size: 0.8rem; opacity: 0.6; text-indent: 2em; word-wrap: break-word; white-space: normal; word-break: break-all;">
             {{ data.description }}
         </p>
     </div>
     <Row :justify="`center`" v-if="data.facePicture != null && data.facePicture != ''">
         <img :src="data.facePicture" class="face-picture">
     </Row>
-    <div>
-        <MdEditor previewOnly v-model="data.content" />
+    <div class="content">
+        <MdEditor previewOnly v-model="data.content" :theme="`dark`" />
     </div>
     <div>
         点赞 : {{ likeCount }} 浏览量 : {{ data.watchCount }}
@@ -57,7 +57,7 @@ onBeforeMount(async () => {
     await getLikeStatus();
 })
 </script>
-<style lang="less">
+<style lang="less" scoped>
 p {
     .figure {
         margin: 5px auto;
@@ -71,5 +71,14 @@ p {
 }
 .face-picture{
     max-width: 100%;
+    max-height: 20rem;
+}
+.content{
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    margin-top: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.997);
+    opacity: 0.75;
 }
 </style>

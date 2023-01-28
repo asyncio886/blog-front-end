@@ -2,6 +2,7 @@ import MimeType from "@/constant/MimeType";
 import request from "./baseApi";
 import { ArticleWithAuthorInfo, BaseOperator, BlogArticle, PageDto, SimpleArticleWithAuthorInfo, Tag } from "./declare";
 import handlerRootResult from "./handlerRootResult";
+import { message } from "ant-design-vue";
 async function getAllTags() {
     let res = await request.get<BaseOperator<PageDto<Tag>>>("/article/tags");
     return handlerRootResult(res.data);
@@ -9,6 +10,10 @@ async function getAllTags() {
 
 async function searchArticles(kw: string ,pn: number) {
     kw = kw.trim();
+    if( kw.includes("{") || kw.includes("}") ) {
+        message.warn("搜索内容不能含有{ }");
+        throw new Error();
+    }
     let res = await request.get<BaseOperator<PageDto<BlogArticle>>>(`/article/search?kw=${kw}&pn=${pn}`);
     return handlerRootResult(res.data);
 }

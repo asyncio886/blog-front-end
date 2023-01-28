@@ -30,7 +30,7 @@
                 :src="(articleVo.facePicture as string)" />
             <span v-else>暂无</span>
         </div>
-        <MdEditor v-model="articleVo.content" @upload-img="onUploadImages" />
+        <MdEditor v-model="articleVo.content" @upload-img="onUploadImages" theme="dark"/>
         <Row :justify="`center`" :style="{ padding: '10px' }">
             <Button type="primary" @click="uploadArticleToRemote">提交</Button>
         </Row>

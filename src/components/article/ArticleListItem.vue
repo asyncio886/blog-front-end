@@ -1,9 +1,8 @@
 <template>
     <div @click="goToDetail(articleInfo.aid)" class="article-item-container">
-        <hr>
         <List.Item>
             <template #extra v-if="articleInfo.facePicture != null && articleInfo.facePicture != ''">
-                <img :src="articleInfo.facePicture" width="100" alt="">
+                <img :src="articleInfo.facePicture" width="100" alt="" style="max-height: 7rem">
             </template>
             <template #actions>
                 <span>
@@ -38,7 +37,9 @@
                     </span>
                 </template>
             </List.Item.Meta>
-            {{ articleInfo.description }}
+            <p class="item-text">
+                {{ articleInfo.description }} 
+            </p>
         </List.Item>
     </div>
 </template>
@@ -46,7 +47,7 @@
 import { SimpleArticleWithAuthorInfo } from '@/api/declare';
 import RouteKeys from '@/constant/RouteKeys';
 import { useRouter } from "vue-router";
-import { ListItem, ListItemMeta, Tag, Popover,List } from "ant-design-vue";
+import {  Tag, Popover,List } from "ant-design-vue";
 import { LikeFilled, EyeFilled } from "@ant-design/icons-vue";
 import { translateNumberToTime } from "@/utils/TranslateUtils"
 const props = defineProps<{ data: SimpleArticleWithAuthorInfo }>();
@@ -69,5 +70,16 @@ function getUserType(t: number): string {
 <style lang="less">
 .article-item-container {
     cursor: pointer;
+    border-radius: 1rem;
+    margin: 0.8rem 0px;
+    box-shadow: 0rem 0rem 0.8rem rgba(128, 128, 128, 0.393);
+    &:hover{
+        box-shadow: 0rem 0rem 0.8rem gray;
+    }
+    transition: box-shadow 0.3s;
+    .item-text {
+        opacity: 0.8;
+        font-size: 0.8rem;
+    }
 }
 </style>

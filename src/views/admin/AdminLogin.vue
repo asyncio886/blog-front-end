@@ -1,9 +1,9 @@
 <template>
 <div class="login-container">
         <div>
-            <Row :justify="`center`" :style="{ margin: `10px` }">
+            <Row :justify="`center`">
                 <Col>
-                    <h2>管理员登录</h2>
+                    <h2 :style="{ marginTop: `3rem` }">管理员登录</h2>
                 </Col>
             </Row>
             <Row :justify="`center`" :style="{ padding: `5px` }">

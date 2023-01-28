@@ -29,7 +29,7 @@
             </Tag>
         </div>
         <div>
-            <p style="font-size: 0.8rem; opacity: 0.6; text-indent: 2em;">
+            <p style="font-size: 0.8rem; opacity: 0.6; text-indent: 2em; word-wrap: break-word; white-space: normal; word-break: break-all;">
                 {{ detail.description }}
             </p>
         </div>

@@ -15,7 +15,13 @@
         </Row>
     </div>
     <div v-else>
-        空空如也
+        <Empty>
+            <template #description>
+                <span style="opacity: 0.6;">
+                    空空如也
+                </span>
+            </template>
+        </Empty>
     </div>
 </template>
 
@@ -24,7 +30,7 @@ import { computed, ref, watch } from 'vue';
 import CommentItem from './CommentItem.vue';
 import { CommentWithAuthorInfo, PageDto } from '@/api/declare';
 import { listComments } from '@/api/commentApi';
-import { message, Row, Button } from 'ant-design-vue';
+import { message, Row, Button, Empty } from 'ant-design-vue';
 import UploadComment from './UploadComment.vue';
 import useBaseUserInfo from "@/store/baseUserInfo";
 const props = defineProps<{ aid: number }>();

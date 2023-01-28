@@ -10,7 +10,7 @@
             <Avatar v-else :size="`large`" :style="{height: '5rem', width: '5rem'}" :src="refWebConfig.webOwnInfo.value.avatar" />
         </Row>
         <Card :title="refWebConfig.webOwnInfo.value.username">
-            <p style="font-size: 0.6rem; opacity: 0.8;">
+            <p style="font-size: 0.6rem; opacity: 0.8; word-wrap: break-word;">
                 {{ refWebConfig.webOwnInfo.value.description }}
             </p>
             <p>
